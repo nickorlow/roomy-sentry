@@ -1,0 +1,2 @@
+# Roomy Sentry
+Roomy Sentry is the service that actively monitors wireless networks (e.g. wifi and bluetooth) to find the presence of devices on a network. Currently, Roomy Sentry only detects devices on wifi.
