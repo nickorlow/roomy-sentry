@@ -27,7 +27,7 @@ namespace RoomySentry
         [JsonIgnore]
         public PhysicalAddress MacAddress { get; private set; }
 
-        [JsonPropertyName("macAddress")] public string MacAddressString => MacAddress.ToString();
+        [JsonPropertyName("macAddress")] public string MacAddressString => MacAddress != null ? string.Join (":", MacAddress.GetAddressBytes().Select(b => b.ToString("X2"))) : ""; 
         public string OwnerName { get; private set; }
         public string DeviceName { get; private set; }
         

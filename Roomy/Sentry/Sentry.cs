@@ -46,7 +46,7 @@ namespace RoomySentry
                     {
                         Console.WriteLine(
                             $"{mdevice.OwnerName}'s {mdevice.DeviceName} last seen at {mdevice.LastDetected.ToShortDateString()} {mdevice.LastDetected.ToLongTimeString()}" +
-                            $"\nIsIdentified: {mdevice.KnownAddresses.Count > 0}\n\n");
+                            $"\nIsIdentified: {mdevice.KnownAddresses.Count > 0} | MAC: {mdevice.MacAddressString}\n\n");
                     }
 
                     Thread.Sleep(TimeSpan.FromMinutes(1));
@@ -81,7 +81,6 @@ namespace RoomySentry
         {
             Packet p = Packet.ParsePacket(e.GetPacket().LinkLayerType, e.Data.ToArray());
             var arp = p.Extract<ArpPacket>();
-            
             if (arp != null)
             {
                 bool isSend = false;
